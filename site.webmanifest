@@ -1,0 +1,11 @@
+{
+  "name":"Clínica Studio",
+  "short_name":"Studio",
+  "description":"Odontologia estética e atendimento humanizado em Juiz de Fora.",
+  "lang":"pt-BR",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#f6f3ed",
+  "theme_color":"#111111",
+  "icons":[]
+}
