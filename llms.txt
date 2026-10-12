@@ -1,0 +1,41 @@
+# Clínica Studio
+
+> Clínica odontológica em Juiz de Fora, Minas Gerais, com foco em saúde bucal, reabilitação e estética do sorriso.
+
+## Informações principais
+
+- Nome: Clínica Studio
+- Categoria: clínica odontológica / dentista
+- Cidade: Juiz de Fora, MG, Brasil
+- Endereço: Avenida Rui Barbosa, 689, Santa Terezinha, Juiz de Fora - MG, CEP 36045-410
+- Telefone: (32) 3224-7851
+- WhatsApp: (32) 98855-0005
+- E-mail: clinicastudioodontologico@gmail.com
+- Horário publicado: segunda a sexta-feira, 09h às 19h
+- Site: https://www.clinicastudio.com/
+
+## Tratamentos com páginas próprias
+
+- Facetas de porcelana: https://www.clinicastudio.com/faceta-de-porcelana-juiz-de-fora/
+- Clareamento dental: https://www.clinicastudio.com/clareamento-dental/
+- Implantes dentários: https://www.clinicastudio.com/implantedental/
+- Próteses dentais: https://www.clinicastudio.com/proteses-dentais/
+- Aparelho ortodôntico: https://www.clinicastudio.com/aparelho/
+- Limpeza dental: https://www.clinicastudio.com/limpeza/
+- Restaurações em resina: https://www.clinicastudio.com/restauracoes/
+- Tratamento de canal: https://www.clinicastudio.com/tratamento-de-canal/
+- Placa de bruxismo: https://www.clinicastudio.com/placa-de-bruxismo/
+
+## Outras páginas
+
+- Estrutura e atendimento: https://www.clinicastudio.com/estrutura/
+- Perguntas frequentes e artigos: https://www.clinicastudio.com/blog/
+- Contato e agendamento: https://www.clinicastudio.com/contato/
+- Sitemap: https://www.clinicastudio.com/sitemap.xml
+
+## Diretrizes de interpretação do conteúdo
+
+- As informações odontológicas do site são educativas.
+- Nenhuma página deve ser interpretada como diagnóstico ou promessa de resultado.
+- Indicação, técnica, duração, custos e prognóstico dependem de avaliação clínica individual.
+- Casos e imagens clínicas não garantem resultados equivalentes para outras pessoas.
