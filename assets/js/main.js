@@ -59,6 +59,49 @@
     else image.addEventListener("error", () => markBrokenImage(image), { once: true });
   });
 
+  // Footer location: useful on every page without duplicating markup across 30+ routes.
+  const footer = $(".site-footer");
+  const footerContainer = footer?.querySelector(".container");
+  const footerBottom = footer?.querySelector(".footer-bottom");
+
+  if (footerContainer && footerBottom && !footer.querySelector(".footer-map-section")) {
+    const location = document.createElement("section");
+    location.className = "footer-map-section";
+    location.setAttribute("aria-label", "Localização da Clínica Studio");
+    location.innerHTML = `
+      <div class="footer-map-grid">
+        <div class="footer-map-frame">
+          <iframe
+            title="Mapa da Clínica Studio em Juiz de Fora"
+            src="https://www.google.com/maps?q=Av.%20Rui%20Barbosa%20689%20Santa%20Terezinha%20Juiz%20de%20Fora%20MG&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="footer-location-card">
+          <span class="footer-location-kicker">Onde estamos</span>
+          <h3>Clínica Studio<br>em Juiz de Fora</h3>
+          <p>Atendimento em Santa Terezinha, com acesso pela Avenida Rui Barbosa.</p>
+          <div class="footer-location-meta">
+            <div><i class="bi bi-geo-alt"></i><span>Av. Rui Barbosa, 689 · Santa Terezinha<br>Juiz de Fora · MG · CEP 36045-410</span></div>
+            <div><i class="bi bi-clock"></i><span>Segunda a sexta · 09h às 19h</span></div>
+            <div><i class="bi bi-telephone"></i><span>(32) 3224-7851</span></div>
+            <div><i class="bi bi-whatsapp"></i><span>(32) 98855-0005</span></div>
+          </div>
+          <div class="footer-map-actions">
+            <a class="btn btn-light" href="https://www.google.com/maps/search/?api=1&query=Av.+Rui+Barbosa+689+Santa+Terezinha+Juiz+de+Fora+MG" target="_blank" rel="noopener">
+              <i class="bi bi-map me-2"></i>Abrir no Google Maps
+            </a>
+            <a class="btn btn-outline-light" href="https://wa.me/5532988550005?text=Olá%2C%20vim%20pelo%20site%20da%20Clínica%20Studio." target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp me-2"></i>WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+    footerContainer.insertBefore(location, footerBottom);
+  }
+
   // WhatsApp lead forms.
   $$(".lead-form").forEach((form) => {
     form.addEventListener("submit", (event) => {
