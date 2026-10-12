@@ -37,3 +37,300 @@ h1,h2,h3,h4,h5,.display-font{font-family:"Manrope",sans-serif}a{color:inherit;te
 @media(max-width:991.98px){.site-topbar{display:none}.brand-logo{width:150px;height:56px}.home-hero{min-height:680px}.home-hero:before{background:linear-gradient(90deg,rgba(4,48,49,.94),rgba(4,48,49,.64)),url("https://static.wixstatic.com/media/b63acd_b1577d46a05b4866a9a7e750ab88b327~mv2.jpg") center/cover no-repeat}.quick-strip .container{grid-template-columns:1fr}.quick-item{border-right:0;border-bottom:1px solid var(--line)}.section{padding:82px 0}.story-grid,.split-content{grid-template-columns:1fr;gap:38px}.story-card{min-height:480px}.treatment-grid{grid-template-columns:repeat(2,1fr)}.gallery-row{grid-template-columns:repeat(2,1fr)}.structure-preview{grid-template-columns:1fr}.structure-preview>.structure-tile{min-height:470px}.answer-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:repeat(2,1fr)}.team-mosaic{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:767.98px){.hero-copy{padding:76px 0}.hero-title{font-size:clamp(3.15rem,16vw,5.2rem)}.hero-text{font-size:.96rem}.hero-actions{flex-direction:column;align-items:stretch}.hero-proof{gap:20px}.section-title{font-size:clamp(2.4rem,12vw,4.1rem)}.story-card{min-height:420px}.mini-features{grid-template-columns:1fr}.treatment-grid{grid-template-columns:1fr}.gallery-row{grid-template-columns:1fr 1fr}.structure-preview>.structure-tile{min-height:390px}.structure-tile{min-height:260px}.clinic-gallery{grid-template-columns:1fr}.clinic-photo{min-height:360px}.team-mosaic{grid-template-columns:repeat(2,1fr)}.blog-grid{grid-template-columns:1fr}.contact-info,.lead-form-wrap{padding:34px 24px}.page-hero{padding:82px 0 68px}.page-hero h1{font-size:clamp(3rem,14vw,5rem)}.cta-band{padding:32px 24px}.footer-bottom{flex-direction:column}.whatsapp-float{width:54px;height:54px;padding:0;justify-content:center}.whatsapp-float span{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.treatment-card,.gallery-card img,.structure-tile img,.post-card,.btn,.whatsapp-float{transition:none}}
+
+/* =========================================================
+   STABILITY + RESPONSIVE PATCH — Clínica Studio
+   Mantém a identidade da logo e evita quebra quando JS/imagens falham.
+   ========================================================= */
+
+html{overflow-x:clip}
+body{min-width:320px;overflow-x:hidden}
+img{height:auto}
+
+/* A marca original tem lettering branco: o header precisa ser escuro. */
+.site-header{
+  background:rgba(4,47,48,.97);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  box-shadow:0 8px 30px rgba(3,35,36,.06);
+}
+.site-header.scrolled{
+  background:rgba(4,47,48,.985);
+  box-shadow:0 12px 36px rgba(3,35,36,.18)
+}
+.site-header .navbar{min-height:78px}
+.brand-logo{
+  width:170px;
+  height:auto!important;
+  max-height:62px;
+  object-fit:contain;
+  object-position:left center;
+  flex:0 0 auto
+}
+.navbar-brand{display:flex;align-items:center;margin-right:1.4rem}
+.navbar-nav{gap:.05rem}
+.navbar-nav .nav-link{
+  color:rgba(255,255,255,.82)!important;
+  white-space:nowrap
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active{
+  color:#80e1df!important
+}
+.site-header .btn-brand{
+  background:#00a3a4;
+  border-color:#00a3a4;
+  box-shadow:0 10px 24px rgba(0,163,164,.18)
+}
+.site-header .btn-brand:hover,
+.site-header .btn-brand:focus{
+  background:#fff;
+  border-color:#fff;
+  color:var(--brand-dark)
+}
+.navbar-toggler{
+  border:1px solid rgba(255,255,255,.18)!important;
+  border-radius:12px;
+  padding:.55rem .65rem
+}
+.navbar-toggler-icon{filter:invert(1) brightness(2)}
+
+/* Dropdown */
+.site-header .dropdown-menu{
+  margin-top:14px;
+  border-color:rgba(6,63,64,.1);
+  box-shadow:0 24px 70px rgba(3,35,36,.2)
+}
+.site-header .dropdown-item{white-space:normal}
+
+/* Mobile drawer follows the same dark identity as the original logo. */
+.offcanvas{
+  background:#052f30;
+  color:#fff;
+  border-left:1px solid rgba(255,255,255,.08)!important
+}
+.offcanvas-header{
+  border-bottom:1px solid rgba(255,255,255,.09)
+}
+.offcanvas .btn-close{
+  filter:invert(1) grayscale(1) brightness(2);
+  opacity:.9
+}
+.mobile-menu a{
+  color:#e5f1f1;
+  border-color:rgba(255,255,255,.10)
+}
+.mobile-menu a:hover{color:#80e1df}
+.mobile-menu .text-secondary{color:#7eb7b7!important}
+.mobile-treatment-links a{color:#a9caca}
+.mobile-menu .btn-brand{
+  border-bottom:0;
+  color:#fff;
+  background:var(--brand-2)
+}
+
+/* Hero */
+.home-hero{
+  min-height:clamp(660px,82vh,860px);
+  background:linear-gradient(135deg,#063f40,#052f30);
+}
+.home-hero:before{
+  background:
+    linear-gradient(90deg,rgba(4,48,49,.96) 0%,rgba(4,48,49,.84) 42%,rgba(4,48,49,.30) 72%,rgba(4,48,49,.20) 100%),
+    url("https://static.wixstatic.com/media/b63acd_b1577d46a05b4866a9a7e750ab88b327~mv2.jpg") center 40%/cover no-repeat;
+}
+.hero-copy{
+  width:min(100%,800px);
+  padding:88px 0 96px
+}
+.hero-title{
+  max-width:790px;
+  text-wrap:balance
+}
+.hero-text{max-width:670px}
+.hero-proof>div{min-width:150px}
+
+/* Component stability */
+.section-title,
+.page-hero h1,
+.content-prose h2,
+.cta-band h2{
+  overflow-wrap:break-word
+}
+.story-card,
+.structure-tile,
+.clinic-photo,
+.gallery-card,
+.content-image{
+  isolation:isolate
+}
+.story-card img,
+.structure-tile img,
+.clinic-photo img,
+.gallery-card img,
+.content-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover
+}
+.content-image{
+  min-height:0;
+  aspect-ratio:4/3
+}
+.split-content .content-image{min-height:440px}
+.structure-preview,
+.treatment-grid,
+.answer-grid,
+.blog-grid,
+.clinic-gallery,
+.team-mosaic{
+  min-width:0
+}
+.treatment-card,
+.answer-card,
+.post-card,
+.mini-feature{
+  min-width:0
+}
+.treatment-card h3,
+.answer-card h3,
+.post-card h2,
+.post-card h3{
+  overflow-wrap:anywhere
+}
+.contact-panel,
+.cta-band{max-width:100%}
+.form-control,.form-select,textarea{max-width:100%}
+
+/* If an external photo is unavailable, preserve the composition. */
+.image-fallback{
+  background:
+    radial-gradient(circle at 20% 15%,rgba(0,163,164,.30),transparent 34%),
+    linear-gradient(135deg,#0b5556,#052f30)!important;
+  position:relative
+}
+.image-fallback:after{
+  content:"Clínica Studio";
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  z-index:5;
+  color:rgba(255,255,255,.72);
+  font:700 .78rem "Manrope",sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.image-fallback>img.is-broken{display:none!important}
+
+/* JS is enhancement only: content is visible by default. */
+.reveal{
+  opacity:1;
+  transform:none;
+  transition:opacity .65s ease,transform .65s cubic-bezier(.2,.75,.25,1)
+}
+.reveal.reveal-init{
+  opacity:0;
+  transform:translateY(18px)
+}
+.reveal.reveal-init.visible{
+  opacity:1;
+  transform:none
+}
+
+/* Footer logo keeps its original proportion. */
+.footer-logo{
+  width:170px;
+  height:auto!important;
+  max-height:96px;
+  object-fit:contain;
+  object-position:left center
+}
+
+/* Tablet */
+@media (max-width:1199.98px){
+  .brand-logo{width:148px}
+  .navbar-nav .nav-link{font-size:.80rem;padding:.65rem .55rem!important}
+  .site-header .btn{font-size:.78rem;padding:.76rem .95rem}
+  .hero-title{font-size:clamp(3.4rem,6.7vw,6.4rem)}
+}
+
+/* Mobile / collapsed navigation */
+@media (max-width:991.98px){
+  .site-header .navbar{min-height:70px}
+  .brand-logo{width:150px;max-height:58px}
+  .navbar-brand{margin-right:0}
+  .home-hero{
+    min-height:auto
+  }
+  .home-hero:before{
+    background:
+      linear-gradient(90deg,rgba(4,48,49,.96),rgba(4,48,49,.66)),
+      url("https://static.wixstatic.com/media/b63acd_b1577d46a05b4866a9a7e750ab88b327~mv2.jpg") center/cover no-repeat
+  }
+  .hero-copy{padding:82px 0 90px}
+  .split-content .content-image{min-height:0;aspect-ratio:16/10}
+  .structure-stack{grid-template-rows:none}
+  .structure-tile{min-height:300px}
+}
+
+/* Phones */
+@media (max-width:767.98px){
+  .container{--bs-gutter-x:1.5rem}
+  .home-hero:before{background-position:58% center}
+  .hero-copy{padding:68px 0 76px}
+  .hero-badge{
+    max-width:100%;
+    white-space:normal;
+    line-height:1.35
+  }
+  .hero-title{
+    font-size:clamp(2.9rem,14vw,4.65rem);
+    line-height:.95;
+    letter-spacing:-.06em
+  }
+  .hero-proof{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 14px
+  }
+  .hero-proof>div:last-child{grid-column:1/-1}
+  .quick-item{padding:18px 4px}
+  .section{padding:72px 0}
+  .section-title{font-size:clamp(2.25rem,11vw,3.6rem)}
+  .page-hero{padding:68px 0 58px}
+  .page-hero h1{
+    font-size:clamp(2.65rem,12vw,4.4rem);
+    line-height:.98
+  }
+  .story-card{min-height:360px}
+  .gallery-row{grid-template-columns:1fr}
+  .gallery-card{aspect-ratio:4/3}
+  .structure-preview>.structure-tile{min-height:340px}
+  .structure-tile{min-height:250px}
+  .clinic-photo{min-height:330px}
+  .team-mosaic{gap:8px}
+  .contact-panel{border-radius:22px}
+  .contact-info,.lead-form-wrap{padding:30px 20px}
+  .cta-band{border-radius:22px;padding:30px 22px}
+  .cta-band h2{font-size:clamp(2rem,10vw,3rem)}
+  .footer-logo{width:160px}
+}
+
+/* Very small devices */
+@media (max-width:399.98px){
+  .brand-logo{width:136px}
+  .hero-title{font-size:2.75rem}
+  .hero-actions .btn{font-size:.86rem}
+  .hero-proof{grid-template-columns:1fr}
+  .hero-proof>div:last-child{grid-column:auto}
+  .team-mosaic{grid-template-columns:1fr 1fr}
+  .whatsapp-float{right:14px;bottom:14px}
+  .back-top{right:20px;bottom:78px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.reveal-init,.reveal.reveal-init.visible{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important
+  }
+}
