@@ -1,63 +1,108 @@
-# Clínica Studio — Website
+# Clínica Studio — Website Institucional
 
-Landing page institucional da **Clínica Studio**, em Juiz de Fora/MG, criada em HTML, CSS, JavaScript e Bootstrap 5.
+Rebuild completo do site da **Clínica Studio**, em Juiz de Fora/MG, feito em HTML5, CSS3, JavaScript Vanilla e Bootstrap 5.
 
-## Stack
+## Identidade visual
 
-- HTML5 semântico
-- CSS3 customizado
-- JavaScript vanilla
-- Bootstrap 5.3
-- Bootstrap Icons
-- JSON-LD / Schema.org
+A interface segue a identidade oficial da Clínica Studio:
+- verde/azul-petróleo principal: `#008788`
+- verde escuro: `#063f40`
+- fundos claros e branco
+- logotipo oficial reaproveitado do site anterior
+- imagens institucionais, casos e equipe reaproveitados da mídia pública do site anterior
 
-## SEO e AEO
+> Neste momento as fotos e o logo estão referenciados no CDN público legado da própria Clínica Studio (Wix). Para independência total do provedor, recomenda-se futuramente copiar esses arquivos para `assets/img/` mantendo os mesmos nomes e textos alternativos.
 
-O projeto inclui:
+## Rotas preservadas
 
-- `title`, meta description e canonical
-- Open Graph e Twitter Cards
-- `robots.txt` e `sitemap.xml`
-- dados estruturados JSON-LD para `Dentist`, `LocalBusiness`, `WebSite` e `FAQPage`
-- FAQ visível e semântica
-- conteúdo local para "dentista em Juiz de Fora"
-- hierarquia correta de headings
+A reconstrução mantém a arquitetura histórica para reduzir quebra de links e perda de SEO:
+
+### Institucional
+- `/`
+- `/estrutura/`
+- `/contato/`
+- `/blog/`
+
+### Tratamentos
+- `/faceta-de-porcelana-juiz-de-fora/`
+- `/clareamento-dental/`
+- `/implantedental/`
+- `/proteses-dentais/`
+- `/aparelho/`
+- `/limpeza/`
+- `/restauracoes/`
+- `/tratamento-de-canal/`
+- `/placa-de-bruxismo/`
+
+### Conteúdo histórico
+Também foram restauradas as 20 URLs de artigos do site antigo sob `/single-post/.../`, com conteúdo reescrito e atualizado em linguagem educativa.
+
+## SEO / AEO
+
+A implementação inclui:
+- HTML semântico e hierarquia correta de headings
+- titles e meta descriptions exclusivos
+- URLs canônicas
+- Open Graph
+- conteúdo local voltado para Juiz de Fora
+- dados estruturados Schema.org
+  - `Dentist`
+  - `LocalBusiness`
+  - `WebSite`
+  - `Service`
+  - `FAQPage`
+  - `Blog`
+  - `BlogPosting`
+  - `BreadcrumbList`
+- FAQs visíveis nas páginas
+- `robots.txt`
+- `sitemap.xml` com todas as rotas indexáveis
+- `llms.txt` para fornecer contexto textual direto a agentes e sistemas de IA
 - textos alternativos em imagens
-- links de telefone, e-mail, mapa e WhatsApp
-- carregamento tardio de imagens secundárias
-- suporte a `prefers-reduced-motion`
-- HTML responsivo e acessível
+- linguagem objetiva e respostas curtas em blocos AEO
+- preservação das URLs históricas
+
+## UX / performance
+
+- Bootstrap 5
+- responsivo para desktop, tablet e celular
+- navegação sticky
+- menu mobile offcanvas
+- dropdown de tratamentos
+- animações via IntersectionObserver
+- respeito a `prefers-reduced-motion`
+- lazy-loading em imagens secundárias
+- formulário sem backend que prepara a mensagem no WhatsApp
+- botão flutuante de WhatsApp
+- favicon e webmanifest
+- página 404 personalizada
 
 ## Contato configurado
 
 - WhatsApp: **(32) 98855-0005**
 - Telefone: **(32) 3224-7851**
 - E-mail: **clinicastudioodontologico@gmail.com**
-- Endereço: **Av. Rui Barbosa, 689 — Santa Terezinha — Juiz de Fora/MG**
-- Atendimento: **segunda a sexta, 09h–19h**
+- Endereço: **Av. Rui Barbosa, 689 — Santa Terezinha — Juiz de Fora/MG — CEP 36045-410**
+- Atendimento publicado: **segunda a sexta, 09h–19h**
 
-## Formulário
+## Conteúdo odontológico
 
-O formulário não exige backend. Ao enviar, ele monta uma mensagem personalizada e abre o WhatsApp da clínica.
-
-## Imagens
-
-O repositório estava vazio no início desta implementação. O site público anterior indexado na web identifica fotos próprias da clínica, recepção, sala de espera e consultório, porém os arquivos originais não estavam disponíveis neste repositório. Por isso, esta primeira versão usa imagens ilustrativas externas e deixa essa informação visível no código/site para evitar representar imagens de terceiros como sendo da estrutura real.
-
-Assim que as imagens oficiais forem adicionadas, basta trocar os `src` no bloco `#estrutura` e no hero. Recomenda-se exportá-las em WebP/AVIF e manter JPG como fallback quando necessário.
-
-## Publicação
-
-O projeto é estático e pode ser publicado em GitHub Pages, Vercel, Netlify ou hospedagem tradicional. O domínio canônico configurado é:
-
-`https://www.clinicastudio.com/`
+Textos antigos foram reorganizados e reescritos para:
+- evitar promessas absolutas de resultado;
+- deixar claro que indicações dependem de avaliação;
+- separar informação educativa de diagnóstico;
+- melhorar legibilidade, SEO e respostas de mecanismos de busca/IA.
 
 ## Desenvolvimento local
-
-Abra `index.html` diretamente no navegador ou rode um servidor local simples:
 
 ```bash
 python -m http.server 8080
 ```
 
-Depois acesse `http://localhost:8080`.
+Acesse `http://localhost:8080`.
+
+## Produção
+
+O site é estático e pode ser publicado em Vercel, Netlify, GitHub Pages ou hospedagem tradicional. O domínio canônico configurado é:
+
+`https://www.clinicastudio.com/`
