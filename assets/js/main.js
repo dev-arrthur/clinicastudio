@@ -3,16 +3,16 @@
 
   const $ = (selector, context = document) => context.querySelector(selector);
   const $$ = (selector, context = document) => [...context.querySelectorAll(selector)];
+  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
   const header = $(".site-header");
   const backToTop = $("#backTop");
   const currentYear = $("#currentYear");
-  const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
 
   const handleScroll = () => {
     const y = window.scrollY || 0;
-    header?.classList.toggle("scrolled", y > 24);
-    backToTop?.classList.toggle("visible", y > 600);
+    header?.classList.toggle("scrolled", y > 20);
+    backToTop?.classList.toggle("visible", y > 650);
   };
 
   window.addEventListener("scroll", handleScroll, { passive: true });
@@ -24,7 +24,7 @@
     window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   });
 
-  // Motion is progressive enhancement. If JS fails, all content remains visible.
+  // Motion is enhancement only. Without JS, content remains visible.
   const revealElements = $$(".reveal");
   if (!reduceMotion && "IntersectionObserver" in window) {
     revealElements.forEach((element) => element.classList.add("reveal-init"));
@@ -37,7 +37,7 @@
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -24px 0px" }
+      { threshold: 0.08, rootMargin: "0px 0px -26px 0px" }
     );
 
     requestAnimationFrame(() => revealElements.forEach((element) => observer.observe(element)));
@@ -45,11 +45,11 @@
     revealElements.forEach((element) => element.classList.add("visible"));
   }
 
-  // Preserve layout if a legacy Wix image is temporarily unavailable.
+  // Keep the composition intact if a legacy image becomes unavailable.
   const markBrokenImage = (image) => {
     image.classList.add("is-broken");
     const host = image.closest(
-      ".story-card,.gallery-card,.structure-tile,.clinic-photo,.content-image,.team-mosaic figure"
+      ".hero-photo,.story-card,.gallery-card,.structure-tile,.clinic-photo,.content-image,.team-mosaic figure"
     );
     host?.classList.add("image-fallback");
   };
@@ -59,7 +59,7 @@
     else image.addEventListener("error", () => markBrokenImage(image), { once: true });
   });
 
-  // Footer location: useful on every page without duplicating markup across 30+ routes.
+  // Add the useful location block to legacy/internal footers.
   const footer = $(".site-footer");
   const footerContainer = footer?.querySelector(".container");
   const footerBottom = footer?.querySelector(".footer-bottom");
@@ -102,7 +102,7 @@
     footerContainer.insertBefore(location, footerBottom);
   }
 
-  // WhatsApp lead forms.
+  // Forms prepare the conversation; no form data is stored by the site.
   $$(".lead-form").forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -135,15 +135,28 @@
     });
   });
 
-  // Phone mask without third-party dependency.
+  // Lightweight phone mask.
   $$('input[name="telefone"]').forEach((phone) => {
     phone.addEventListener("input", (event) => {
       let value = event.target.value.replace(/\D/g, "").slice(0, 11);
+
       if (value.length > 10) value = value.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
       else if (value.length > 6) value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
       else if (value.length > 2) value = value.replace(/(\d{2})(\d{0,5})/, "($1) $2");
       else if (value.length) value = value.replace(/(\d{0,2})/, "($1");
+
       event.target.value = value;
     });
   });
+
+  // Close the mobile menu after choosing a destination.
+  const mobileNav = $("#mobileNav");
+  if (mobileNav && window.bootstrap?.Offcanvas) {
+    $$(".mobile-menu a", mobileNav).forEach((link) => {
+      link.addEventListener("click", () => {
+        const instance = window.bootstrap.Offcanvas.getInstance(mobileNav);
+        instance?.hide();
+      });
+    });
+  }
 })();
